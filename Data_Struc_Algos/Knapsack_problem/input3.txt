@@ -1,0 +1,11 @@
+10 100
+goop0	10 108
+goop1	20 102
+goop2	35 58
+goop3	17 19
+goop4	32 40
+goop5	18 55
+goop6	26 42
+goop7	46 73
+goop8	31 78
+goop9	14 74

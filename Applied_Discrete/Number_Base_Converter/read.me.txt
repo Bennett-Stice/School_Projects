@@ -1,0 +1,4 @@
+We handled this porject mainly by applying the algorithms we did in class by translating them into code.
+The trickiest parts of the problem were dealing with hexadecimal conversions both to and from.
+This is becasue we had to think of either our input or output as a string instead of just transtioning from numbers to numbers like the other conversions.
+We did this by creating arrays of characters and just converting each digit or set of digits into the corresponding character.

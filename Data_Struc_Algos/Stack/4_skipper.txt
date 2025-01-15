@@ -1,0 +1,16 @@
+func main
+  printS hello world
+  printNL
+  skipz 0,2
+  printS This should **NOT** be printed!
+  printNL
+  param $1
+  call other
+  storet $1
+  printS and back!!
+  printNL
+  exit
+func other
+  printS in function
+  printNL
+  ret

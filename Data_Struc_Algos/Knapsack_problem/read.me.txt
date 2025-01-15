@@ -1,0 +1,6 @@
+1. Bennett Stice
+2. 4/13/2024
+3. Linux kate
+4. No special steps
+5. No known bugs
+6. I first attacked this problem using the waited schedule alogrithym that we learned about in class. Then I realize that I'm dumb and this was really just a knapsack problem in disguise where the time each item took was the weight, the deadline was the max weight the knapsack could carry, and the penalty was the value of each item. Once I did that, it was smooth sailing.

@@ -1,0 +1,5 @@
+1. Bennett Stice
+2. 1/21/2024
+3. Linux kate. There's a makefile.
+4. There might spit out a segmentation fault error on quick sort when running the sorted file with a lot of strings. Sometimes it does, sometimes not.
+5. I approached the problem by using list and arrays to make the sorting algorithms. 

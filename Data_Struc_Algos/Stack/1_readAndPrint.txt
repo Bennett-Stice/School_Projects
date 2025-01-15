@@ -1,0 +1,5 @@
+func main
+     printS  Enter a value:
+     read    var
+     printN  var
+     exit

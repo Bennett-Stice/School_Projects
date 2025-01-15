@@ -1,0 +1,5 @@
+1. Bennett Stice
+2. 4/1/2024
+3. kate Linux No special compilation steps
+4. The only possible known "bug" is that my distance answer is rounded to the nearest hundred-thousandth, where the given anwers go longer
+5. I approaced the problem by just trying to translate the given sudo-code/algorythm into code. My biggest breakthrough is when I realized I should create the PointPair class to hold the distance and points easier. I initially struggled with how to handle the base case or cases, but when I eventually cut them up into 3 possibilities, it worked much smoother.

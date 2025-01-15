@@ -1,0 +1,6 @@
+1. Bennett Stice
+2. 9/3/2023
+3. Linux Kate
+4. No special steps
+5. No know bugs
+6. I attacked this problem by first just figuring out the first 2 user entered commands. I could then separate each step of the process after that. I thought it was best to use 3 text files in my database (Books.txt, Holdings.txt, and Libraries.txt), that way I could tell the reader and writers which type of information we were either writing in or reading out.

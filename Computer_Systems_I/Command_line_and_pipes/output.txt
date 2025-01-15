@@ -1,0 +1,23 @@
+total 1060
+-rw-r--r--. 1 bennettstice bennettstice   3175 Sep 14 03:36 Command.cpp
+-rw-r--r--. 1 bennettstice bennettstice   2359 Oct  2 22:54 Command.hpp
+-rw-r--r--. 1 bennettstice bennettstice 174336 Oct  3 22:43 Command.o
+-rw-r--r--. 1 bennettstice bennettstice     46 Sep 28 23:09 data.txt
+drwxr-xr-x. 1 bennettstice bennettstice      0 Sep 27 21:00 dumbFile
+-rw-r--r--. 1 bennettstice bennettstice    764 Sep 14 03:33 main.cpp
+-rw-r--r--. 1 bennettstice bennettstice 109392 Sep 27 20:58 main.o
+-rw-r--r--. 1 bennettstice bennettstice    520 Oct  4 00:20 Makefile
+-rw-r--r--. 1 bennettstice bennettstice      0 Oct  5 10:31 output.txt
+-rwxr-xr-x. 1 bennettstice bennettstice 250472 Oct  5 10:30 proj1
+-rw-r--r--. 1 bennettstice bennettstice   3895 Oct  5 00:31 Project1_BS.cpp
+-rw-r--r--. 1 bennettstice bennettstice 160808 Oct  5 10:30 Project1_BS.o
+drwxr-xr-x. 1 bennettstice bennettstice     84 Oct  4 00:19 Project1_BS_Turn_In
+-rw-r--r--. 1 bennettstice bennettstice   2402 Oct  4 00:19 Project1_BS_Turn_In.zip
+-rw-r--r--. 1 bennettstice bennettstice   4708 Sep 25 22:07 Project1ProvidedCode.tgz
+-rwxr-xr-x. 1 bennettstice bennettstice  38464 Sep 25 22:37 runMe
+-rw-r--r--. 1 bennettstice bennettstice    498 Sep 14 03:33 Token.cpp
+-rw-r--r--. 1 bennettstice bennettstice   1377 Sep 14 03:33 Token.hpp
+-rw-r--r--. 1 bennettstice bennettstice 132248 Sep 27 20:36 Token.o
+-rw-r--r--. 1 bennettstice bennettstice   3385 Sep 14 03:42 TokenStream.cpp
+-rw-r--r--. 1 bennettstice bennettstice   1168 Sep 14 03:33 TokenStream.hpp
+-rw-r--r--. 1 bennettstice bennettstice 150144 Sep 27 20:36 TokenStream.o

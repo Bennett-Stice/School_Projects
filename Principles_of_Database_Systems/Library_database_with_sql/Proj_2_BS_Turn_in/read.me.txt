@@ -1,0 +1,7 @@
+1. bennett stice
+2. 11/17/23
+3. Linux fedora kate
+4. compile with "g++ -o runMe -I /usr/include/mysql-cppconn-8 Project_2.cpp -lmysqlcppconn"
+5. no known bugs
+6. I attacked this problem by basically adapting my project 1 code to use the sql strategies that were shown in the program you gave us about GPA's
+

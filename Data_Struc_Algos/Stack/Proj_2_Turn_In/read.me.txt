@@ -1,0 +1,6 @@
+1. Bennett Stice
+2. 2/14/2024
+3. Linux kate IDE
+4. No known bugs
+5. I approached this project by crying and not knowing anything until at about hour 4 I made a breakthrough and did 90% in one hour. I figured out which of the methods that were supplied to us that I needed to use.
+

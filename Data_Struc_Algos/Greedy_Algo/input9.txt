@@ -1,0 +1,10 @@
+wasteItem00001 50 5
+wasteItem00002 40 1
+wasteItem00003 30 4
+wasteItem00004 20 3
+wasteItem00005 10 2
+wasteItem00006 5 2
+wasteItem00007 15 3
+wasteItem00008 25 4
+wasteItem00009 35 1
+wasteItem00010 45 5

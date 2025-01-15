@@ -1,0 +1,6 @@
+1. bennett stice
+2. no special details on how to run or compile the project.
+3. I did this in Linux kate 
+4. The pipes don't work so dont try them.
+5. I solved this by forking my processes and in the child just looking at the given function that returns a boolean and then making the adjustments needed to wheere my input/output needed to go.
+

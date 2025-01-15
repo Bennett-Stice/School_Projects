@@ -1,0 +1,16 @@
+  printS shouldnt be printed
+func main
+  printS hello world
+  printNL
+  printS goobye for now
+  printNL
+  param $1
+  call other
+  storet $1
+  printS and back!!
+  printNL
+  exit
+func other
+  printS in function
+  printNL
+  ret

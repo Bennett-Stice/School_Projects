@@ -1,0 +1,208 @@
+     1                                  
+     2                                  ;; bennett stice
+     3                                  ;; 11/27/2023
+     4                                  
+     5                                  
+     6                                          section         .data
+     7 00000000 456E74657220666972-     firstPrompt:            db      "Enter first number: "
+     7 00000009 7374206E756D626572-
+     7 00000012 3A20               
+     8 00000014 456E74657220736563-     secondPrompt:           db      "Enter second number: "
+     8 0000001D 6F6E64206E756D6265-
+     8 00000026 723A20             
+     9 00000029 54686520474344206F-     output1:                db      "The GCD of "
+     9 00000032 6620               
+    10 00000034 20616E6420              output2:                db      " and "
+    11 00000039 20697320                output3:                db      " is "
+    12 0000003D 4120                    output4:                db      "A "
+    13 0000003F <res 16h>               buffer1:                resb    22
+    13          ******************       warning: uninitialized space declared in non-BSS section `.data': zeroing [-w+zeroing]
+    14 00000055 <res 16h>               buffer2:                resb    22
+    14          ******************       warning: uninitialized space declared in non-BSS section `.data': zeroing [-w+zeroing]
+    15                                  
+    16                                          section         .text
+    17                                          extern          printAX
+    18                                          extern          printNL
+    19                                          global          _start
+    20                                  _start:
+    21                                          ;;  print first prompt
+    22 00000000 B804000000                      mov             rax, 4
+    23 00000005 BB01000000                      mov             rbx, 1
+    24 0000000A 48B9-                           mov             rcx, firstPrompt
+    24 0000000C [0000000000000000] 
+    25 00000014 BA14000000                      mov             rdx, secondPrompt-firstPrompt
+    26 00000019 CD80                            int             0x80
+    27                                  
+    28                                          ;; read string into buffer
+    29 0000001B B803000000                      mov             rax, 3
+    30 00000020 BB00000000                      mov             rbx, 0
+    31 00000025 48B9-                           mov             rcx, buffer1
+    31 00000027 [3F00000000000000] 
+    32 0000002F BA16000000                      mov             rdx, 22
+    33 00000034 CD80                            int             0x80
+    34                                  
+    35 00000036 50                              push            rax     ;;save the size of the buffer you just inputed
+    36                                  
+    37                                          ;;  print second prompt
+    38 00000037 B804000000                      mov             rax, 4
+    39 0000003C BB01000000                      mov             rbx, 1
+    40 00000041 48B9-                           mov             rcx, secondPrompt
+    40 00000043 [1400000000000000] 
+    41 0000004B BA15000000                      mov             rdx, output1-secondPrompt
+    42 00000050 CD80                            int             0x80
+    43                                  
+    44                                          ;; read string into buffer
+    45 00000052 B803000000                      mov             rax, 3
+    46 00000057 BB00000000                      mov             rbx, 0
+    47 0000005C 48B9-                           mov             rcx, buffer2
+    47 0000005E [5500000000000000] 
+    48 00000066 BA16000000                      mov             rdx, 22
+    49 0000006B CD80                            int             0x80
+    50                                  
+    51                                  
+    52 0000006D 50                              push            rax     ;;save the size of the buffer you just inputed
+    53                                  
+    54                                  
+    55                                          ;; make sure everything starts with zero then translate first buffer
+    56 0000006E B900000000                      mov             rcx,0
+    57 00000073 BA00000000                      mov             rdx,0
+    58 00000078 BB00000000                      mov             rbx,0
+    59 0000007D 8A1C25[3F000000]                mov             bl,[buffer1]
+    60                                  translate1:
+    61                                  
+    62 00000084 80EB30                          sub             bl,0x30
+    63                                  
+    64 00000087 B80A000000                      mov             rax,10
+    65 0000008C 48F7E2                          mul             rdx
+    66 0000008F 4801C3                          add             rbx,rax
+    67 00000092 4889DA                          mov             rdx,rbx
+    68 00000095 48FFC1                          inc             rcx
+    69                                  
+    70 00000098 8A99[3F000000]                  mov             bl,[buffer1+rcx]
+    71                                  
+    72 0000009E 80FB0A                          cmp             bl,0xa
+    73 000000A1 75E1                            jne             translate1
+    74 000000A3 4889D0                          mov             rax,rdx
+    75 000000A6 50                              push            rax
+    76                                  
+    77                                          ;; make sure everything starts with zero then translate second buffer
+    78 000000A7 B900000000                      mov             rcx,0
+    79 000000AC BA00000000                      mov             rdx,0
+    80 000000B1 BB00000000                      mov             rbx,0
+    81 000000B6 8A1C25[55000000]                mov             bl,[buffer2]
+    82                                  translate2:
+    83                                  
+    84 000000BD 80EB30                          sub             bl,0x30
+    85                                  
+    86 000000C0 B80A000000                      mov             rax,10
+    87 000000C5 48F7E2                          mul             rdx
+    88 000000C8 4801C3                          add             rbx,rax
+    89 000000CB 4889DA                          mov             rdx,rbx
+    90 000000CE 48FFC1                          inc             rcx
+    91                                  
+    92 000000D1 8A99[55000000]                  mov             bl,[buffer2+rcx]
+    93                                  
+    94 000000D7 80FB0A                          cmp             bl,0xa
+    95 000000DA 75E1                            jne             translate2
+    96 000000DC 4889D0                          mov             rax,rdx
+    97 000000DF 50                              push            rax
+    98                                  
+    99                                  
+   100                                          ;; load input int rcx and rax and then find GCD
+   101 000000E0 59                              pop             rcx
+   102 000000E1 58                              pop             rax
+   103                                  GCD:
+   104                                  
+   105                                          ;; if b=0, a is answer
+   106 000000E2 4883F900                        cmp             rcx,0
+   107 000000E6 741D                            je              done
+   108                                  
+   109                                          ;; handle recursion
+   110 000000E8 4839C8                          cmp             rax,rcx
+   111 000000EB 7C02                            jl              less_than
+   112 000000ED 7D07                            jge             greater_than
+   113                                  
+   114                                  less_than:
+   115                                  
+   116                                          ;; if a<b, swap a and b
+   117 000000EF 50                              push            rax
+   118 000000F0 4889C8                          mov             rax, rcx
+   119 000000F3 59                              pop             rcx
+   120 000000F4 EBEC                            jmp             GCD
+   121                                  
+   122                                  greater_than:
+   123                                  
+   124                                          ;; if a>=b, swap b into a and b= a%b
+   125 000000F6 BA00000000                      mov             rdx,0
+   126 000000FB 51                              push            rcx
+   127 000000FC 48F7F1                          div             rcx
+   128 000000FF 4889D1                          mov             rcx,rdx
+   129 00000102 58                              pop             rax
+   130 00000103 EBDD                            jmp             GCD
+   131                                  
+   132                                  done:
+   133                                  
+   134                                          ;; push rax to be printed out later
+   135 00000105 50                              push            rax
+   136                                  
+   137                                          ;; print out first ouput statment
+   138 00000106 B804000000                      mov             rax, 4
+   139 0000010B BB01000000                      mov             rbx, 1
+   140 00000110 48B9-                           mov             rcx, output1
+   140 00000112 [2900000000000000] 
+   141 0000011A BA0B000000                      mov             rdx, output2-output1
+   142 0000011F CD80                            int             0x80
+   143                                  
+   144                                          ;; set the correct length of first input
+   145 00000121 5B                              pop             rbx
+   146 00000122 59                              pop             rcx
+   147 00000123 5A                              pop            rdx
+   148 00000124 51                              push            rcx
+   149 00000125 53                              push            rbx
+   150 00000126 48FFCA                          dec             rdx
+   151                                  
+   152                                          ;; print out first input
+   153 00000129 B804000000                      mov             rax, 4
+   154 0000012E BB01000000                      mov             rbx, 1
+   155 00000133 48B9-                           mov             rcx, buffer1
+   155 00000135 [3F00000000000000] 
+   156 0000013D CD80                            int             0x80
+   157                                  
+   158                                          ;; print out second ouput statment
+   159 0000013F B804000000                      mov             rax, 4
+   160 00000144 BB01000000                      mov             rbx, 1
+   161 00000149 48B9-                           mov             rcx, output2
+   161 0000014B [3400000000000000] 
+   162 00000153 BA05000000                      mov             rdx, output3-output2
+   163 00000158 CD80                            int             0x80
+   164                                  
+   165                                          ;; set the correct length of second input
+   166 0000015A 5B                              pop             rbx
+   167 0000015B 5A                              pop             rdx
+   168 0000015C 53                              push            rbx
+   169 0000015D 48FFCA                          dec             rdx
+   170                                  
+   171                                          ;; print out the second input
+   172 00000160 B804000000                      mov             rax, 4
+   173 00000165 BB01000000                      mov             rbx, 1
+   174 0000016A 48B9-                           mov             rcx, buffer2
+   174 0000016C [5500000000000000] 
+   175 00000174 CD80                            int             0x80
+   176                                  
+   177                                          ;; print out third ouput statment
+   178 00000176 B804000000                      mov             rax, 4
+   179 0000017B BB01000000                      mov             rbx, 1
+   180 00000180 48B9-                           mov             rcx, output3
+   180 00000182 [3900000000000000] 
+   181 0000018A BA04000000                      mov             rdx, output4-output3
+   182 0000018F CD80                            int             0x80
+   183                                  
+   184                                          ;; set our rax to print and print it
+   185 00000191 58                              pop             rax
+   186 00000192 E8(00000000)                    call            printAX
+   187 00000197 E8(00000000)                    call            printNL
+   188                                  
+   189                                          ;; exit to linux
+   190 0000019C B801000000                      mov             rax, 1
+   191 000001A1 BB00000000                      mov             rbx, 0
+   192 000001A6 CD80                            int             0x80

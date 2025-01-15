@@ -1,0 +1,5 @@
+1. Bennett Stice
+2. no special details on how to compile. I compiled with nasm -gstabs -felf64 -l Proj_3.lst Proj_3.s and linker as ld Proj_3.o printAX.o printDigit.o printNL.o -o runMe
+3. no special details on how to run. I made it in linux kate
+4. no known bugs
+5. I solved the project by combining what we learned in the read and write example with some of the printAX and printNL examples. The algo wasn't very hard to make at all, just the translating from a string to an integer was a little funky.

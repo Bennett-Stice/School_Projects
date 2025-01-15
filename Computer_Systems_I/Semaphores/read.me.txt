@@ -1,0 +1,15 @@
+Bennett Stice
+No special details to compile. It has a makefile.
+No special details to run.
+No known Bugs.
+I solved the Project by combining the test take off that was given to us with the examples of threads and semaphores. Main problem was coming up with loading and deloading schemes that involved the semaphores. I eventually concluded that I was dumb and just to use the one that was given to us.
+
+1) If you run it with only 11 passengers you will have deadlock because no plane will have the needed 12 to leave the gate.
+
+2) If you run it with 12 you might get super lucky and have all the passengers go to one plane, but the vast majority of times they will spread out into different planes and you will have deadlock.
+
+3) When I ran it with 50 passengers I still had deadlock because the passengers spread out to different planes and no plane reached the 12 passengers needed to takeoff.
+
+4) If you run it with 100 passengers everything will work as intended.
+
+5) The minimum number of passengers needed to guarantee avoidance of deadlock is 89 because this means that every plane could have 11 passengers and not take off, but one will have 12 and will be able to takeoff and then the passengers will be returned when the plane comes back.

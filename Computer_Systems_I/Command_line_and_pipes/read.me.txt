@@ -1,0 +1,6 @@
+1. bennett stice
+2. I made my project in the katE IDE on a Linux virtual machine
+3. no special details on how to run or compile my project
+4. sometimes the ">>>>" lines up wrong to read the next command and sometimes when the first set of commands are ls -l it doesn't let you read in any more commands.
+5. i tried to solve this problem by looking at the booleans that were given in the command.hpp and then adjusting for each circumstances before my execvp.
+

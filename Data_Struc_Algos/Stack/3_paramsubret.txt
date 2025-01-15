@@ -1,0 +1,18 @@
+  prints shouldnt be printed
+func main
+  printS hello world
+  printNL
+  printS goobye for now
+  printNL
+  sub	7,1,shouldBeSix
+  param shouldBeSix
+  call other
+  storet $1
+  printS and back!!
+  printNL
+  exit
+func other
+  printS in function:
+  printN $$
+  printNL
+  ret

@@ -1,0 +1,30 @@
+func factorial
+
+     skipnz  $$,2
+     dump
+     retv    1
+
+     sub     $$,1,nm1
+     param   nm1
+     call    factorial
+     storet  recVal
+     mul     recVal,$$,answer
+     retv    answer
+     
+func main
+
+     printS  Enter a value:
+     read    var
+
+     param   var
+     call    factorial
+     storet  facVal
+
+     dump
+
+     printNL
+     printN  var
+     printS  !=
+     printN  facVal
+     printNL
+     exit

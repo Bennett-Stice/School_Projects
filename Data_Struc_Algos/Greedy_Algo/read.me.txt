@@ -1,0 +1,5 @@
+1. Bennett Stice
+2. 3/12/2024
+3. Linux Kate. No special steps
+4 No known bugs
+5. I attacked the problem by sorting the jobs by their penalty. Then I would try to fit them in on the day of their deadline. If that slot was taken, try to fit it in the slot before. Repeat until you get to zero. If the job has been able to be put in a slot then its penalty must be added to the total.
